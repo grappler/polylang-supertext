@@ -80,15 +80,15 @@ class Wrapper
       throw new ApiDataException(
         sprintf(
           __('The quotes are missing (%s -> %s). Please contact Supertext.', 'polylang-supertext'),
-          __($sourceLanguage, 'polylang-supertext-langs'),
-          __($targetLanguage, 'polylang-supertext-langs')
+          $sourceLanguage,
+          $targetLanguage
         )
       );
     }
 
     $result = array(
       'wordCount' => $json->WordCount,
-      'language' => __($targetLanguage, 'polylang-supertext-langs'),
+      'language' => $targetLanguage,
       'options' => array()
     );
 
