@@ -101,7 +101,6 @@ class Core
 
       // Load translations
       load_plugin_textdomain('polylang-supertext', false, 'polylang-supertext/resources/languages');
-      load_plugin_textdomain('polylang-supertext-langs', false, 'polylang-supertext/resources/languages');
 
       // Load needed subcomponents in admin
       $this->settingsPage = new SettingsPage($this->getLibrary(), $this->getTextAccessors());
@@ -180,7 +179,7 @@ class Core
     if ($library->getPluginStatus()->isPluginConfiguredProperly) {
       $languages = $library->getConfiguredLanguages();
       foreach ($languages as $language) {
-        $translation_array['languages'][$language->slug] = esc_js(__($library->toSuperCode($language->slug), 'polylang-supertext-langs'));
+        $translation_array['languages'][$language->slug] = esc_js($library->toSuperCode($language->slug));
       }
     }
 
